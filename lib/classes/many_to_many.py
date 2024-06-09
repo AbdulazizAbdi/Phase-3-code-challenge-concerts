@@ -141,3 +141,10 @@ class Venue:
     def bands(self):
         bands_list = [concert.band for concert in Concert.all if concert.venue == self]
         return list(set(bands_list))
+
+    def concert_on(self, date):
+        for concert in Concert.all:
+            if concert.venue == self and concert.date == date:
+                return concert
+
+        return None
